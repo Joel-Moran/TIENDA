@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Carrito - MiTienda{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-4">🛒 Tu carrito</h2>
+
+{% if items %}
+<div class="row">
+  <!-- Productos -->
+  <div class="col-md-8">
+    {% for item in items %}
+    <div class="card bg-secondary text-light mb-3">
+      <div class="row g-0 align-items-center p-2">
+        <div class="col-md-3">
+          <img src="{{ url_for('static', filename='img/' ~ item.producto.imagen) }}"
+               class="img-fluid rounded">
+        </div>
+
+        <div class="col-md-5">
+          <h5>{{ item.producto.nombre }}</h5>
+          <p>$ {{ item.producto.precio }}</p>
+        </div>
+
+        <div class="col-md-2 text-center">
+          <span>Cantidad</span>
+          <h5>{{ item.cantidad }}</h5>
+        </div>
+
+        <div class="col-md-2 text-end">
+          <p><strong>$ {{ item.producto.precio * item.cantidad }}</strong></p>
+          <a href="{{ url_for('eliminar_carrito', item_id=item.id) }}"
+             class="btn btn-danger btn-sm">Eliminar</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Resumen -->
+  <div class="col-md-4">
+    <div class="card bg-dark text-light p-3 shadow">
+      <h4>Resumen</h4>
+      <hr>
+      <p>Total:</p>
+      <h3 class="text-success">$ {{ total }}</h3>
+
+      <a href="#" class="btn btn-success w-100 mt-3">
+        Finalizar compra
+      </a>
+
+      <a href="{{ url_for('home') }}"
+         class="btn btn-outline-light w-100 mt-2">
+        Seguir comprando
+      </a>
+    </div>
+  </div>
+</div>
+
+{% else %}
+<div class="alert alert-info text-center">
+  Tu carrito está vacío 🛒
+</div>
+{% endif %}
+{% endblock %}

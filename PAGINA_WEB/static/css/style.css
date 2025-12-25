@@ -1,0 +1,36 @@
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
+
+h1 {
+  text-shadow: 0 0 10px #0ff;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.btn-primary {
+  background-color: #00ffff;
+  border: none;
+  color: #000;
+}
+
+.btn-primary:hover {
+  background-color: #ff00ff;
+  color: white;
+}
+
+form {
+  box-shadow: 0 0 15px rgba(0,255,255,0.3);
+}
+form:hover {
+  box-shadow: 0 0 25px rgba(255,0,255,0.6);
+}
+
+.nav-link.text-info {
+  font-weight: bold;
+  text-shadow: 0 0 5px #00ffff;
+}
